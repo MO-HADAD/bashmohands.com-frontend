@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { ConfigProvider, Layout } from "antd";
 import MainNav from "../../components/Header";
+import { MainFooter } from "../../components/Footer";
 
 const { Content } = Layout;
 
@@ -23,6 +24,7 @@ export default function BaseLayout() {
         <Content style={{ paddingLeft: "50px", paddingRight: "50px" }}>
           <Outlet />
         </Content>
+        <MainFooter />
       </ConfigProvider>
     </div>
   );
