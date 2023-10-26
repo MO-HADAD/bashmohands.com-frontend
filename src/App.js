@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-<<<<<<< HEAD
 import ProfilePage from "./pages/profile";
 import BaseLayout from "./app/layouts/baseLayout";
 import NotFound from "./pages/404";
@@ -12,16 +11,9 @@ import SignupPage, { signupAction } from "./pages/signup";
 import LoginPage, { loginFormAction } from "./pages/login";
 import ProfileSettingsPage from "./pages/myProfile";
 import AccountSettingsPage from "./pages/accountSettings";
-
-import {
-  checkAuthLoader,
-  isAuthMineLoader,
-  userAuthLoader,
-} from "./app/model/auth";
 import AccountLayout from "./app/layouts/accountLayout";
 import { ConfigProvider } from "antd";
 import ProfileLayout from "./app/layouts/profileLayout";
-=======
 import { ProfilePage } from "./pages/profile";
 import BaseLayout from "./app/layouts/baseLayout";
 import NotFound from "./pages/404";
@@ -33,7 +25,13 @@ import SingleSession from "./pages/session/SingleSession";
 import SignupPage, { signupAction } from "./pages/signup";
 import LoginPage, { loginFormAction } from "./pages/login";
 import { checkAuthLoader, userAuthLoader } from "./app/model/auth";
->>>>>>> omar-filter_search
+
+import {
+  checkAuthLoader,
+  isAuthMineLoader,
+  userAuthLoader,
+} from "./app/model/auth";
+
 
 const router = createBrowserRouter([
   {
@@ -55,7 +53,6 @@ const router = createBrowserRouter([
       {
         // Protected Pages & is related to user profile
         path: "/:handler/account",
-<<<<<<< HEAD
         element: <AccountLayout />,
         errorElement: <NotFound />,
         loader: isAuthMineLoader,
@@ -116,27 +113,6 @@ function App() {
       <RouterProvider router={router} />
     </ConfigProvider>
   );
-=======
-        errorElement: <NotFound />,
-        children: [
-          { index: true, element: <Account />, loader: checkAuthLoader },
-          { path: "/:handler/account/sessions", element: <AllSessions /> },
-          { path: "/:handler/account/session/:id", element: <SingleSession /> },
-        ],
-      }, // End Protected Pages
-      {
-        // Profile Page by Handler
-        path: "/:handler",
-        errorElement: <NotFound />,
-        children: [{ index: true, element: <ProfilePage /> }],
-      },
-    ],
-  }, // End Home & General Pages
-]);
-
-function App() {
-  return <RouterProvider router={router} />;
->>>>>>> omar-filter_search
 }
 
 export default App;
